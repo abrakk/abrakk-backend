@@ -247,4 +247,13 @@ This project is licensed under the [MIT License](./LICENSE).
 
 EduKit exists because of its contributors. Every contribution — code, documentation, design, testing, translation, or ideas — helps make educational resources more accessible.
 
+| Avatar | Name | Role | GitHub |
+|--------|------|------|--------|
+| <img src="https://github.com/abrak01.png" width="40" height="40" style="border-radius:50%" alt="abrak01"> | **Abrak** | Project Lead & Architect | [@abrak01](https://github.com/abrak01) |
+| <img src="https://github.com/ghost.png" width="40" height="40" style="border-radius:50%" alt="Contributor"> | **Fatima Aliyu** | Frontend Engineer | [@fatima-aliyu](https://github.com/fatima-aliyu) |
+| <img src="https://github.com/ghost.png" width="40" height="40" style="border-radius:50%" alt="Contributor"> | **Chukwuemeka Obi** | Backend Engineer (Rust) | [@chukwuemeka-obi](https://github.com/chukwuemeka-obi) |
+| <img src="https://github.com/ghost.png" width="40" height="40" style="border-radius:50%" alt="Contributor"> | **Ngozi Adeyemi** | UI/UX & Accessibility | [@ngozi-adeyemi](https://github.com/ngozi-adeyemi) |
+
+Want to see your name here? Check out our [open issues](https://github.com/abrakk/abrakk-backend/issues) and start contributing.
+
 **Thank you for helping build a better learning ecosystem.**

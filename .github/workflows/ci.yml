@@ -26,21 +26,36 @@ jobs:
         with:
           components: rustfmt, clippy
 
-      - name: Cache Cargo registry
-        uses: actions/cache@v4
+      - name: Cache Cargo
+        uses: Swatinem/rust-cache@v2
         with:
-          path: |
-            ~/.cargo/registry
-            ~/.cargo/git
-            apps/api/target
-          key: ${{ runner.os }}-cargo-${{ hashFiles('apps/api/Cargo.lock') }}
-          restore-keys: ${{ runner.os }}-cargo-
+          workspaces: apps/api
 
       - name: Check formatting
         run: cargo fmt --all -- --check
 
       - name: Run Clippy
         run: cargo clippy --all-targets --all-features -- -D warnings
+
+  rust-build:
+    name: Rust — Build
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: apps/api
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install Rust stable
+        uses: dtolnay/rust-toolchain@stable
+
+      - name: Cache Cargo
+        uses: Swatinem/rust-cache@v2
+        with:
+          workspaces: apps/api
+
+      - name: Build
+        run: cargo build --all
 
   rust-test:
     name: Rust — Tests
@@ -64,7 +79,7 @@ jobs:
           --health-retries 5
     env:
       DATABASE_URL: postgres://edukit:edukit_password@localhost:5432/edukit_test
-      JWT_SECRET: test_secret_that_is_long_enough_for_testing
+      JWT_SECRET: test_secret_that_is_long_enough_for_testing_purposes
     steps:
       - uses: actions/checkout@v4
 
@@ -72,47 +87,18 @@ jobs:
         uses: dtolnay/rust-toolchain@stable
 
       - name: Cache Cargo
-        uses: actions/cache@v4
+        uses: Swatinem/rust-cache@v2
         with:
-          path: |
-            ~/.cargo/registry
-            ~/.cargo/git
-            apps/api/target
-          key: ${{ runner.os }}-cargo-test-${{ hashFiles('apps/api/Cargo.lock') }}
-          restore-keys: ${{ runner.os }}-cargo-test-
+          workspaces: apps/api
 
       - name: Install sqlx-cli
-        run: cargo install sqlx-cli --no-default-features --features postgres
+        run: cargo install sqlx-cli --no-default-features --features postgres --locked
 
       - name: Run migrations
-        run: sqlx migrate run --database-url $DATABASE_URL
+        run: sqlx migrate run --database-url "$DATABASE_URL"
 
       - name: Run tests
         run: cargo test --all
-
-  rust-build:
-    name: Rust — Build
-    runs-on: ubuntu-latest
-    defaults:
-      run:
-        working-directory: apps/api
-    steps:
-      - uses: actions/checkout@v4
-
-      - name: Install Rust stable
-        uses: dtolnay/rust-toolchain@stable
-
-      - name: Cache Cargo
-        uses: actions/cache@v4
-        with:
-          path: |
-            ~/.cargo/registry
-            ~/.cargo/git
-            apps/api/target
-          key: ${{ runner.os }}-cargo-build-${{ hashFiles('apps/api/Cargo.lock') }}
-
-      - name: Build release
-        run: cargo build --release
 
   # ── Next.js Frontend ─────────────────────────────────────────────────────────
   frontend-check:
@@ -127,12 +113,10 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: "20"
-          cache: "npm"
-          cache-dependency-path: apps/web/package-lock.json
+          node-version: "22"
 
       - name: Install dependencies
-        run: npm ci
+        run: npm install
 
       - name: Type check
         run: npm run type-check
@@ -152,12 +136,10 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: "20"
-          cache: "npm"
-          cache-dependency-path: apps/web/package-lock.json
+          node-version: "22"
 
       - name: Install dependencies
-        run: npm ci
+        run: npm install
 
       - name: Run tests
         run: npm test
@@ -176,12 +158,10 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: "20"
-          cache: "npm"
-          cache-dependency-path: apps/web/package-lock.json
+          node-version: "22"
 
       - name: Install dependencies
-        run: npm ci
+        run: npm install
 
       - name: Build
         run: npm run build

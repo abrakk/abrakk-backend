@@ -1,7 +1,7 @@
 # ── Rust ──────────────────────────────────────────────────────────────────────
 target/
 **/*.rs.bk
-Cargo.lock          # Keep this if publishing a binary — remove for libraries
+# Cargo.lock is committed for binary projects — do NOT add it here
 
 # ── Node.js / Next.js ─────────────────────────────────────────────────────────
 node_modules/
