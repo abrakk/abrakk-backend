@@ -249,11 +249,11 @@ EduKit exists because of its contributors. Every contribution — code, document
 
 | Avatar | Name | Role | GitHub |
 |--------|------|------|--------|
-| <img src="https://github.com/abrak01.png" width="40" height="40" style="border-radius:50%" alt="abrak01"> | **Abrak** | Project Lead & Architect | [@abrak01](https://github.com/abrak01) |
-| <img src="https://github.com/ghost.png" width="40" height="40" style="border-radius:50%" alt="Contributor"> | **Fatima Aliyu** | Frontend Engineer | [@fatima-aliyu](https://github.com/fatima-aliyu) |
-| <img src="https://github.com/ghost.png" width="40" height="40" style="border-radius:50%" alt="Contributor"> | **Chukwuemeka Obi** | Backend Engineer (Rust) | [@chukwuemeka-obi](https://github.com/chukwuemeka-obi) |
-| <img src="https://github.com/ghost.png" width="40" height="40" style="border-radius:50%" alt="Contributor"> | **Ngozi Adeyemi** | UI/UX & Accessibility | [@ngozi-adeyemi](https://github.com/ngozi-adeyemi) |
+| <img src="https://github.com/abrak01.png" width="48" height="48" style="border-radius:50%" alt="abrak01"> | **Abrak Fredrick** | Project Lead & Architect | [@abrak01](https://github.com/abrak01) |
+| <img src="https://github.com/identicons/fatima-aliyu.png" width="48" height="48" style="border-radius:50%" alt="Fatima Aliyu"> | **Fatima Aliyu** | Frontend Engineer (Next.js / TypeScript) | [@fatima-aliyu](https://github.com/fatima-aliyu) |
+| <img src="https://github.com/identicons/chukwuemeka-obi.png" width="48" height="48" style="border-radius:50%" alt="Chukwuemeka Obi"> | **Chukwuemeka Obi** | Backend Engineer (Rust / Axum) | [@chukwuemeka-obi](https://github.com/chukwuemeka-obi) |
+| <img src="https://github.com/identicons/ngozi-adeyemi.png" width="48" height="48" style="border-radius:50%" alt="Ngozi Adeyemi"> | **Ngozi Adeyemi** | UI/UX Design & Accessibility | [@ngozi-adeyemi](https://github.com/ngozi-adeyemi) |
 
-Want to see your name here? Check out our [open issues](https://github.com/abrakk/abrakk-backend/issues) and start contributing.
+Want to see your name here? Browse our [open issues](https://github.com/abrakk/abrakk-backend/issues), pick one labeled `good first issue`, and open a Pull Request.
 
 **Thank you for helping build a better learning ecosystem.**
